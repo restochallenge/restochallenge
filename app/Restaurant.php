@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Restaurant extends Model
 {
+    protected $guarded = [];
+    
     /**
      * Get the price of an item
      * @param Item|int Either the id of an item or the item itself
@@ -14,7 +16,7 @@ class Restaurant extends Model
     public function getItemPrice($item)
     {
         // If we're given an ID, we find the actual item
-        if(!(is_a($item, Item::class))) {
+        if(!($item instanceof Item)) {
             $item = Item::find($item);
         }
 
@@ -35,7 +37,7 @@ class Restaurant extends Model
     }
 
     /**
-     * Get all the items that this order has
+     * Get all the items that this restaurant has
      */
     public function items()
     {

@@ -13,7 +13,7 @@ class RestaurantHasOrder implements Rule
      *
      * @return void
      */
-    public function __construct($order)
+    public function __construct($orderId)
     {
         $this->orderId = $orderId;
     }
